@@ -21,7 +21,7 @@ jobs:
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user check
     - stage: test
       env:
-        - COVERAGE=0.25
+        - COVERAGE=0.37
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order check
     - stage: test
       env:
@@ -33,7 +33,7 @@ jobs:
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/product check
     - stage: test
       env:
-        - COVERAGE=0.25
+        - COVERAGE=0.37
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/user check
 
 after_success:
