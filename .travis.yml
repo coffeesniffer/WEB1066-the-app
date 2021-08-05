@@ -4,12 +4,12 @@ dist: trusty
 
 env:
   - COVERAGE_ui=0.5
-  - COVERAGE_service_cart=0.5
-  - COVERAGE_service_user=0.5
-  - COVERAGE_repository_order=0.5
-  - COVERAGE_repository_cart=0.5
-  - COVERAGE_repository_product=0.5
-  - COVERAGE_repository_user=0.5
+  - COVERAGE_service_cart=0.24
+  - COVERAGE_service_user=0.24
+  - COVERAGE_repository_order=0.24
+  - COVERAGE_repository_cart=0.24
+  - COVERAGE_repository_product=0.24
+  - COVERAGE_repository_user=0.24
 
 script:
   - ./gradlew clean jar
