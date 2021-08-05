@@ -1,4 +1,4 @@
-anguage: java
+language: java
 jdk: openjdk8
 dist: trusty
 
@@ -9,31 +9,31 @@ jobs:
   include:
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.41
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/ui
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.42
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/cart
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.43
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.44
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.45
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/cart
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.46
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/product
     - stage: test
       env:
-        - COVERAGE=0.5
+        - COVERAGE=0.47
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/user
 
 after_success:
