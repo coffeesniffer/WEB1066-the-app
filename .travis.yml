@@ -5,6 +5,8 @@ jdk:
 os: linux
 dist: trusty
 
+install: skip
+
 jobs:
   include:
     - stage: build_jar
@@ -24,7 +26,7 @@ jobs:
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user check
     - stage: test
       env:
-        - COVERAGE=0.3
+        - COVERAGE=0.38
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order check
     - stage: test
       env:
