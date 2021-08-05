@@ -2,6 +2,7 @@ language: java
 jdk:
   - openjdk8
   - openjdk9
+os: linux
 dist: trusty
 
 jobs:
@@ -23,7 +24,7 @@ jobs:
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user check
     - stage: test
       env:
-        - COVERAGE=0.38
+        - COVERAGE=0.3
       script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order check
     - stage: test
       env:
