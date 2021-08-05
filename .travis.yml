@@ -10,31 +10,31 @@ jobs:
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/ui
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/ui check
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/cart
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/cart check
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user check
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order check
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/cart
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/cart check
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/product
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/product check
     - stage: test
       env:
         - COVERAGE=0.5
-      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/user
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/user check
 
 after_success:
   - find . -name jacocoTestReport.csv | xargs cat | awk -F',' '{print $3" "$4" "$5}'
