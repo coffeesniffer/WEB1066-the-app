@@ -2,34 +2,39 @@ anguage: java
 jdk: openjdk8
 dist: trusty
 
-env:
-  - COVERAGE_ui=0.5
-  - COVERAGE_service_cart=0.15
-  - COVERAGE_service_user=0.15
-  - COVERAGE_repository_order=0.15
-  - COVERAGE_repository_cart=0.15
-  - COVERAGE_repository_product=0.15
-  - COVERAGE_repository_user=0.15
-
 script:
   - ./gradlew clean jar
 
 jobs:
   include:
     - stage: test
-      script: COVERAGE=${COVERAGE_ui} ./gradlew -p ./monolithic/ui
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/ui
     - stage: test
-      script: COVERAGE=${COVERAGE_service_cart} ./gradlew -p ./monolithic/service/cart
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/cart
     - stage: test
-      script: COVERAGE=${COVERAGE_service_user} ./gradlew -p ./monolithic/service/user
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/service/user
     - stage: test
-      script: COVERAGE=${COVERAGE_repository_order} ./gradlew -p ./monolithic/repository/order
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/order
     - stage: test
-      script: COVERAGE=${COVERAGE_repository_cart} ./gradlew -p ./monolithic/repository/cart
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/cart
     - stage: test
-      script: COVERAGE=${COVERAGE_repository_product} ./gradlew -p ./monolithic/repository/product
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/product
     - stage: test
-      script: COVERAGE=${COVERAGE_repository_user} ./gradlew -p ./monolithic/repository/user
+      env:
+        - COVERAGE=0.5
+      script: COVERAGE=${COVERAGE} ./gradlew -p ./monolithic/repository/user
 
 after_success:
   - find . -name jacocoTestReport.csv | xargs cat | awk -F',' '{print $3" "$4" "$5}'
